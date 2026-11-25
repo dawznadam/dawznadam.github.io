@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>婷久久见久久新开路段 | 影像记录者 · 城市观察计划</title>
+<meta name="description" content="婷久久见久久新开路段——一支以城市街区、道路变迁与人文影像为核心的视频创作团队，用镜头记录每一条新开路段的温度与故事。">
+<style>
+:root{
+  --bg:#0c0e12;
+  --bg-soft:#12151b;
+  --bg-card:#171b23;
+  --line:#242a35;
+  --txt:#e8ecf2;
+  --txt-dim:#9aa4b2;
+  --txt-mute:#6b7686;
+  --accent:#ff5a3c;
+  --accent-2:#ffb43c;
+  --accent-soft:rgba(255,90,60,.12);
+  --radius:18px;
+  --max:1200px;
+  --font:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--txt);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ============ 布局容器 ============ */
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+.section{padding:96px 0;position:relative}
+.section-alt{background:var(--bg-soft)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
+h2.section-title{
+  font-size:clamp(26px,3.4vw,42px);
+  font-weight:800;letter-spacing:-.01em;line-height:1.25;margin-bottom:16px;
+}
+.section-sub{color:var(--txt-dim);font-size:16px;max-width:640px;margin-bottom:48px}
+
+/* ============ 顶部导航 ============ */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .35s,backdrop-filter .35s,border-color .35s;
+  border-bottom:1px solid transparent;
+}
+header.nav.scrolled{
+  background:rgba(12,14,18,.86);
+  backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;letter-spacing:-.01em}
+.logo-mark{
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:grid;place-items:center;flex-shrink:0;
+}
+.logo-mark span{width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #0c0e12;margin-left:2px}
+.logo small{display:block;font-size:10px;letter-spacing:.2em;color:var(--txt-mute);font-weight:500}
+nav.links{display:flex;gap:30px;font-size:14px;color:var(--txt-dim)}
+nav.links a{transition:color .25s;position:relative;padding:4px 0}
+nav.links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:var(--accent);transition:width .3s;
+}
+nav.links a:hover{color:var(--txt)}
+nav.links a:hover::after{width:100%}
+.nav-cta{
+  padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0c0e12;
+  transition:transform .25s,box-shadow .25s;white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,90,60,.32)}
+.menu-btn{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);align-items:center;justify-content:center}
+.menu-btn svg{width:18px;height:18px;stroke:var(--txt)}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:140px 0 90px;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0;opacity:.9}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 20%,transparent 80%);
+}
+.glow{
+  position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;pointer-events:none;
+}
+.glow-1{width:520px;height:520px;background:#ff5a3c;top:-140px;left:-100px;opacity:.28}
+.glow-2{width:460px;height:460px;background:#ffb43c;bottom:-180px;right:-120px;opacity:.16}
+.hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 24px;width:100%}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 15px;border:1px solid var(--line);border-radius:100px;
+  font-size:12.5px;color:var(--txt-dim);margin-bottom:26px;background:rgba(23,27,35,.6);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,90,60,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,90,60,.55)}
+  70%{box-shadow:0 0 0 10px rgba(255,90,60,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,90,60,0)}
+}
+h1.hero-title{
+  font-size:clamp(42px,8vw,92px);
+  font-weight:900;line-height:1.04;letter-spacing:-.03em;margin-bottom:10px;
+}
+h1.hero-title .grad{
+  background:linear-gradient(120deg,#ff5a3c 0%,#ffb43c 55%,#ffe0a3 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-tagline{
+  font-size:clamp(17px,2.2vw,24px);color:var(--txt-dim);font-weight:500;
+  max-width:720px;margin:22px 0 40px;line-height:1.6;
+}
+.hero-tagline b{color:var(--txt);font-weight:700}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:64px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 30px;border-radius:100px;font-size:15px;font-weight:600;
+  transition:transform .25s,box-shadow .25s,background .25s,border-color .25s;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0c0e12}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(255,90,60,.32)}
+.btn-ghost{border:1px solid var(--line);color:var(--txt);background:rgba(23,27,35,.5)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;max-width:760px;
+}
+.stat{background:rgba(18,21,27,.9);padding:22px 20px}
+.stat-num{font-size:clamp(24px,3vw,34px);font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.stat-num em{font-style:normal;color:var(--accent);font-size:.62em;margin-left:2px}
+.stat-label{font-size:12.5px;color:var(--txt-mute);margin-top:6px;letter-spacing:.04em}
+
+/* ============ 跑马灯 ============ */
+.marquee{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--bg-soft);overflow:hidden;padding:18px 0;
+}
+.marquee-track{
+  display:flex;gap:48px;width:max-content;
+  animation:scroll 38s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marquee-item{
+  display:flex;align-items:center;gap:48px;
+  font-size:14px;color:var(--txt-mute);letter-spacing:.12em;text-transform:uppercase;
+  white-space:nowrap;font-weight:600;
+}
+.marquee-item::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* ============ 关于 ============ */
+.about-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;
+}
+.about-copy p{color:var(--txt-dim);margin-bottom:18px;font-size:15.5px}
+.about-copy p strong{color:var(--txt);font-weight:700}
+.about-points{display:grid;gap:16px;margin-top:32px}
+.point{
+  display:flex;gap:16px;padding:18px 20px;border:1px solid var(--line);
+  border-radius:14px;background:var(--bg-card);transition:border-color .25s,transform .25s;
+}
+.point:hover{border-color:rgba(255,90,60,.45);transform:translateX(4px)}
+.point-icon{
+  width:40px;height:40px;border-radius:11px;flex-shrink:0;
+  background:var(--accent-soft);display:grid;place-items:center;
+}
+.point-icon svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:2}
+.point h4{font-size:15px;margin-bottom:4px}
+.point p{font-size:13.5px;color:var(--txt-mute);margin:0}
+.about-visual{position:relative}
+.visual-card{
+  border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  background:var(--bg-card);position:relative;
+}
+.visual-card svg{width:100%;height:auto}
+.visual-float{
+  position:absolute;right:-18px;bottom:-18px;
+  background:var(--bg-card);border:1px solid var(--line);border-radius:16px;
+  padding:16px 20px;display:flex;align-items:center;gap:13px;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+.visual-float .pulse-dot{width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 12px #3ddc84}
+.visual-float b{font-size:14px;display:block}
+.visual-float small{font-size:11.5px;color:var(--txt-mute)}
+
+/* ============ 栏目 / 作品 ============ */
+.filter-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.filter-btn{
+  padding:9px 20px;border-radius:100px;font-size:13.5px;font-weight:600;
+  border:1px solid var(--line);color:var(--txt-dim);transition:all .25s;
+}
+.filter-btn:hover{color:var(--txt);border-color:var(--txt-mute)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#0c0e12}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-card{
+  border-radius:var(--radius);overflow:hidden;background:var(--bg-card);
+  border:1px solid var(--line);transition:transform .35s,border-color .35s;
+  display:flex;flex-direction:column;
+}
+.work-card:hover{transform:translateY(-6px);border-color:rgba(255,90,60,.5)}
+.work-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a0c10}
+.work-thumb svg{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.work-card:hover .work-thumb svg{transform:scale(1.05)}
+.work-dur{
+  position:absolute;right:12px;bottom:12px;padding:3px 9px;border-radius:6px;
+  background:rgba(0,0,0,.72);font-size:11.5px;font-weight:600;letter-spacing:.03em;
+}
+.work-body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column}
+.work-tag{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:10px;
+}
+.work-body h3{font-size:17.5px;line-height:1.4;margin-bottom:10px;font-weight:700}
+.work-body p{font-size:13.5px;color:var(--txt-mute);flex:1;margin-bottom:16px}
+.work-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--txt-mute);border-top:1px solid var(--line);padding-top:14px}
+.work-meta span{display:flex;align-items:center;gap:6px}
+.work-meta svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ============ 数字区块 ============ */
+.counters{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.counter-card{
+  padding:32px 26px;border-radius:var(--radius);border:1px solid var(--line);
+  background:linear-gradient(160deg,var(--bg-card),var(--bg-soft));position:relative;overflow:hidden;
+}
+.counter-card::before{
+  content:"";position:absolute;top:-40px;right:-40px;width:120px;height:120px;
+  border-radius:50%;background:var(--accent-soft);filter:blur(20px);
+}
+.counter-num{font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1;position:relative}
+.counter-num i{font-style:normal;font-size:.5em;color:var(--accent);margin-left:3px}
+.counter-label{margin-top:12px;font-size:13.5px;color:var(--txt-mute);position:relative}
+
+/* ============ 时间线 ============ */
+.timeline{position:relative;padding-left:32px}
+.timeline::before{
+  content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(var(--accent),var(--accent-2),transparent);
+}
+.tl-item{position:relative;padding-bottom:40px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-32px;top:6px;width:16px;height:16px;
+  border-radius:50%;background:var(--bg);border:3px solid var(--accent);
+  box-shadow:0 0 0 4px rgba(255,90,60,.12);
+}
+.tl-year{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:6px}
+.tl-item h4{font-size:17px;margin-bottom:6px}
+.tl-item p{font-size:14px;color:var(--txt-mute);max-width:600px}
+
+/* ============ 社区 ============ */
+.community{position:relative;overflow:hidden}
+.community-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.quote-card{
+  padding:28px 26px;border-radius:var(--radius);border:1px solid var(--line);
+  background:var(--bg-card);display:flex;flex-direction:column;gap:18px;
+  transition:border-color .3s,transform .3s;
+}
+.quote-card:hover{border-color:rgba(255,180,60,.45);transform:translateY(-4px)}
+.quote-text{font-size:14.5px;color:var(--txt-dim);line-height:1.75;flex:1}
+.quote-user{display:flex;align-items:center;gap:12px}
+.avatar{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  display:grid;place-items:center;font-weight:800;font-size:15px;color:#0c0e12;
+}
+.quote-user b{font-size:13.5px;display:block}
+.quote-user small{font-size:11.5px;color:var(--txt-mute)}
+.stars{color:var(--accent-2);font-size:12px;letter-spacing:2px}
+
+/* ============ 订阅 ============ */
+.subscribe{
+  border-radius:26px;border:1px solid var(--line);
+  background:linear-gradient(140deg,#171b23,#0f1218);
+  padding:56px 48px;position:relative;overflow:hidden;
+}
+.subscribe::after{
+  content:"";position:absolute;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,90,60,.22),transparent 65%);
+  top:-140px;right:-80px;pointer-events:none;
+}
+.subscribe-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative;z-index:2}
+.subscribe h2{font-size:clamp(24px,3vw,34px);font-weight:800;margin-bottom:14px;line-height:1.3}
+.subscribe p{color:var(--txt-dim);font-size:15px;max-width:420px}
+.sub-form{display:flex;gap:10px;flex-wrap:wrap}
+.sub-form input{
+  flex:1;min-width:200px;padding:15px 20px;border-radius:100px;
+  border:1px solid var(--line);background:var(--bg);color:var(--txt);
+  font-size:14.5px;font-family:inherit;outline:none;transition:border-color .25s;
+}
+.sub-form input::placeholder{color:var(--txt-mute)}
+.sub-form input:focus{border-color:var(--accent)}
+.sub-form button{
+  padding:15px 28px;border-radius:100px;font-weight:700;font-size:14.5px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0c0e12;
+  transition:transform .25s,box-shadow .25s;
+}
+.sub-form button:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,90,60,.3)}
+.sub-note{font-size:12.5px;color:var(--txt-mute);margin-top:14px}
+.sub-msg{font-size:13.5px;color:#3ddc84;margin-top:12px;min-height:20px}
+
+/* ============ FAQ ============ */
+.faq-list{max-width:820px;display:grid;gap:12px}
+.faq-item{
+  border:1px solid var(--line);border-radius:14px;background:var(--bg-card);
+  overflow:hidden;transition:border-color .25s;
+}
+.faq-item.open{border-color:rgba(255,90,60,.45)}
+.faq-q{
+  width:100%;text-align:left;padding:20px 24px;display:flex;justify-content:space-between;
+  align-items:center;gap:16px;font-size:15.5px;font-weight:600;color:var(--txt);
+}
+.faq-q svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 24px 22px;font-size:14px;color:var(--txt-dim);line-height:1.75}
+
+/* ============ 页脚 ============ */
+footer.site-footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:40px;margin-bottom:48px}
+.footer-brand p{color:var(--txt-mute);font-size:13.5px;margin-top:16px;max-width:300px}
+.footer-col h5{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt);margin-bottom:18px;font-weight:700}
+.footer-col li{margin-bottom:11px}
+.footer-col a{font-size:13.5px;color:var(--txt-mute);transition:color .25s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{
+  border-top:1px solid var(--line);padding-top:26px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  font-size:12.5px;color:var(--txt-mute);
+}
+.socials{display:flex;gap:10px}
+.socials a{
+  width:36px;height:36px;border-radius:10px;border:1px solid var(--line);
+  display:grid;place-items:center;transition:all .25s;
+}
+.socials a:hover{border-color:var(--accent);background:var(--accent-soft)}
+.socials svg{width:16px;height:16px;stroke:var(--txt-dim);fill:none;stroke-width:1.8}
+
+/* ============ 响应式 ============ */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:44px}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .counters{grid-template-columns:repeat(2,1fr)}
+  .quote-grid{grid-template-columns:1fr}
+  .subscribe-grid{grid-template-columns:1fr;gap:32px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:780px){
+  .section{padding:64px 0}
+  nav.links{display:none}
+  .nav-cta{display:none}
+  .menu-btn{display:flex}
+  .work-grid{grid-template-columns:1fr}
+  .counters{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .subscribe{padding:36px 24px}
+  .visual-float{right:8px;bottom:-14px;padding:12px 16px}
+  .hero-actions{margin-bottom:44px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark"><span></span></span>
+      <span>婷久久见<small>LONG STREET STUDIO</small></span>
+    </a>
+    <nav class="links">
+      <a href="#about">关于我们</a>
+      <a href="#works">影像作品</a>
+      <a href="#journey">历程</a>
+      <a href="#community">社区</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a href="#subscribe" class="nav-cta">加入创作计划</a>
+    <button class="menu-btn" id="menuBtn" aria-label="打开菜单">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot"></span>城市影像计划 · 2025 新开路段记录中</div>
+    <h1 class="hero-title">婷久久见<span class="grad">久久新开路段</span></h1>
+    <p class="hero-tagline">
+      一条路从图纸变成街道，只需要一个雨季；<br>
+      而被它改变的生活，值得被 <b>长久地看见</b>。<br>
+      我们用镜头丈量每一段新开路段，把城市的生长存档。
+    </p>
+    <div class="hero-actions">
+      <a href="#works" class="btn btn-primary">
+        观看最新作品
+        <svg viewBox="0 0 24 24"><path d="M8 5l8 7-8 7"/></svg>
+      </a>
+      <a href="#about" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+        了解我们的方式
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num" data-count="186"><em>+</em>186</div><div class="stat-label">已记录路段</div></div>
+      <div class="stat"><div class="stat-num" data-count="2400"><em>万</em>2400</div><div class="stat-label">累计播放量</div></div>
+      <div class="stat"><div class="stat-num" data-count="72"><em>+</em>72</div><div class="stat-label">合作创作者</div></div>
+      <div class="stat"><div class="stat-num" data-count="9"><em>年</em>9</div><div class="stat-label">持续记录年数</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 跑马灯 ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ================= 关于 ================= -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy">
+        <div class="eyebrow">About The Studio</div>
+        <h2 class="section-title">我们是路段的翻译者，<br>也是生活节拍的拾音器</h2>
+        <p>
+          <strong>婷久久见</strong> 成立于九年前，最初只是三个人、一台机器，和一条刚通车的高架。
+          我们想做的事情很简单：在每一个「<strong>新开路段</strong>」还带着沥青温度的时候，把它记录下来——
+          记录它两旁的树怎么长起来，店铺怎么一家家亮灯，晚高峰的车流如何在夜里连成光带。
+        </p>
+        <p>
+          如今，我们以「久久新开路段」为长期影像项目，把城市更新中那些容易被忽略的细节，做成可被反复观看的短片、长片与影像档案。
+          我们不追逐猎奇，只相信<strong>时间本身的力量</strong>——同一条路，隔一年再拍，就是完全不同的故事。
+        </p>
+        <div class="about-points">
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M3 12s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div>
+              <h4>长期主义记录法</h4>
+              <p>同一机位、同一时段、多轮次回访，让变化自己开口说话。</p>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M4 19h16M7 16l4-6 3 4 4-7"/></svg></div>
+            <div>
+              <h4>数据与叙事并行</h4>
+              <p>车流、人流、光度、声景，影像之外还建立可检索的档案层。</p>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div>
+            <div>
+              <h4>开放共创机制</h4>
+              <p>本地创作者、店主、通勤者都能提交片段，共同完成一条路的肖像。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="visual-card">
+          <!-- 示意插画：城市路段 -->
+          <svg viewBox="0 0 560 460" role="img" aria-label="城市新开路段夜景插画">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1a2030"/>
+                <stop offset="1" stop-color="#0d1016"/>
+              </linearGradient>
+              <linearGradient id="road" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2a3140"/>
+                <stop offset="1" stop-color="#161b24"/>
+              </linearGradient>
+              <linearGradient id="lineG" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#ff5a3c" stop-opacity="0"/>
+                <stop offset=".5" stop-color="#ffb43c"/>
+                <stop offset="1" stop-color="#ff5a3c" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="560" height="460" fill="url(#sky)"/>
+            <!-- 星点 -->
+            <g fill="#ffffff" opacity=".5">
+              <circle cx="60" cy="50" r="1.4"/><circle cx="140" cy="32" r="1"/><circle cx="230" cy="66" r="1.2"/>
+              <circle cx="330" cy="40" r="1"/><circle cx="420" cy="72" r="1.5"/><circle cx="500" cy="46" r="1"/>
+              <circle cx="380" cy="110" r="1"/><circle cx="96" cy="112" r="1.2"/>
+            </g>
+            <!-- 远景楼群 -->
+            <g fill="#151a24">
+              <rect x="20" y="180" width="58" height="150"/>
+              <rect x="88" y="150" width="44" height="180"/>
+              <rect x="142" y="200" width="66" height="130"/>
+              <rect x="360" y="170" width="54" height="160"/>
+              <rect x="424" y="140" width="48" height="190"/>
+              <rect x="482" y="205" width="60" height="125"/>
+            </g>
+            <!-- 窗户 -->
+            <g fill="#ffb43c" opacity=".55">
+              <rect x="30" y="196" width="7" height="9"/><rect x="46" y="196" width="7" height="9"/>
+              <rect x="62" y="214" width="7" height="9"/><rect x="30" y="232" width="7" height="9"/>
+              <rect x="98" y="168" width="7" height="9"/><rect x="114" y="186" width="7" height="9"/>
+              <rect x="152" y="216" width="7" height="9"/><rect x="176" y="216" width="7" height="9"/>
+              <rect x="152" y="240" width="7" height="9"/>
+              <rect x="370" y="188" width="7" height="9"/><rect x="388" y="206" width="7" height="9"/>
+              <rect x="434" y="160" width="7" height="9"/><rect x="452" y="178" width="7" height="9"/>
+              <rect x="434" y="200" width="7" height="9"/>
+              <rect x="492" y="222" width="7" height="9"/><rect x="512" y="240" width="7" height="9"/>
+            </g>
+            <!-- 路面 -->
+            <path d="M0 330 L560 330 L560 460 L0 460 Z" fill="url(#road)"/>
+            <!-- 车道线 -->
+            <path d="M280 340 L150 460" stroke="url(#lineG)" stroke-width="4" stroke-dasharray="18 22"/>
+            <path d="M280 340 L410 460" stroke="url(#lineG)" stroke-width="4" stroke-dasharray="18 22"/>
+            <path d="M280 340 L280 460" stroke="#ffb43c" stroke-opacity=".35" stroke-width="2" stroke-dasharray="14 20"/>
+            <!-- 路灯 -->
+            <g stroke="#495264" stroke-width="3" fill="none">
+              <path d="M188 330 V250 Q188 236 202 236"/>
+              <path d="M372 330 V250 Q372 236 358 236"/>
+            </g>
+            <circle cx="206" cy="236" r="6" fill="#ffb43c" opacity=".9"/>
+            <circle cx="354" cy="236" r="6" fill="#ffb43c" opacity=".9"/>
+            <ellipse cx="206" cy="330" rx="46" ry="10" fill="#ffb43c" opacity=".10"/>
+            <ellipse cx="354" cy="330" rx="46" ry="10" fill="#ffb43c" opacity=".10"/>
+            <!-- 车辆光轨 -->
+            <path d="M120 460 Q200 380 264 344" stroke="#ff5a3c" stroke-width="5" fill="none" opacity=".85" stroke-linecap="round"/>
+            <path d="M440 460 Q360 380 296 344" stroke="#e8ecf2" stroke-width="4" fill="none" opacity=".55" stroke-linecap="round"/>
+            <path d="M150 460 Q220 392 272 348" stroke="#ffb43c" stroke-width="2" fill="none" opacity=".7" stroke-linecap="round"/>
+            <!-- 拍摄取景框 -->
+            <g stroke="#ff5a3c" stroke-width="2" fill="none" opacity=".9">
+              <path d="M300 268 h26 M300 268 v26"/>
+              <path d="M404 268 h-26 M404 268 v26"/>
+              <path d="M300 312 h26 M300 312 v-18"/>
+              <path d="M404 312 h-26 M404 312 v-18"/>
+            </g>
+            <circle cx="352" cy="290" r="3" fill="#ff5a3c"/>
+            <text x="352" y="252" fill="#ff5a3c" font-size="11" text-anchor="middle" font-family="monospace">REC 00:09:28</text>
+          </svg>
+        </div>
+        <div class="visual-float">
+          <span class="pulse-dot"></span>
+          <div><b>正在录制中</b><small>第 187 条新开路段 · 秋分</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 数字 ================= -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="eyebrow">By The Numbers</div>
+    <h2 class="section-title">用数字，标记走过的路</h2>
+    <p class="section-sub">每一个数字背后，都是一次出发、一段等待，和一群愿意把镜头对准日常的人。</p>
+    <div class="counters">
+      <div class="counter-card">
+        <div class="counter-num">186<i>条</i></div>
+        <div class="counter-label">已完成拍摄的新开路段</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-num">4,120<i>小时</i></div>
+        <div class="counter-label">累计现场记录时长</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-num">72<i>位</i></div>
+        <div class="counter-label">签约与共创创作者</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-num">31<i>城</i></div>
+        <div class="counter-label">影像档案覆盖城市</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 作品 ================= -->
+<section class="section" id="works">
+  <div class="wrap">
+    <div class="eyebrow">Selected Works</div>
+    <h2 class="section-title">影像作品</h2>
+    <p class="section-sub">从三分钟的短片到四十分钟的长纪录片，每一条作品都对应一条真实存在的路段。</p>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="road">路段纪录</button>
+      <button class="filter-btn" data-filter="people">人物故事</button>
+      <button class="filter-btn" data-filter="sound">声景实验</button>
+      <button class="filter-btn" data-filter="archive">影像档案</button>
+    </div>
+
+    <div class="work-grid" id="workGrid">
+      <!-- 1 -->
+      <article class="work-card" data-cat="road">
+        <div class="work-thumb">
+          <svg viewBox="0 0 400 250" aria-label="南延路清晨画面">
+            <defs><linearGradient id="w1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26313f"/><stop offset="1" stop-color="#131820"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#w1)"/>
+            <circle cx="300" cy="70" r="30" fill="#ffb43c" opacity=".28"/>
+            <circle cx="300" cy="70" r="16" fill="#ffb43c" opacity=".6"/>
+            <path d="M0 170 L400 170 L400 250 L0 250 Z" fill="#1b222c"/>
+            <path d="M200 178 L120 250" stroke="#ff5a3c" stroke-width="3" opacity=".7"/>
+            <path d="M200 178 L280 250" stroke="#ff5a3c" stroke-width="3" opacity=".7"/>
+            <g fill="#0e1319"><rect x="20" y="110" width="36" height="60"/><rect x="70" y="130" width="28" height="40"/><rect x="340" y="120" width="40" height="50"/></g>
+            <path d="M0 200 Q100 190 200 186 T400 200" stroke="#3a4453" stroke-width="2" fill="none"/>
+          </svg>
+          <span class="work-dur">12:40</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tag">路段纪录</div>
+          <h3>南延路 · 通车后的第一百个清晨</h3>
+          <p>从凌晨四点开始，在这条刚开通两个月的路段上守候。记录第一班公交、第一遍洒水车，和第一位在路口摆摊卖豆浆的人。</p>
+          <div class="work-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6"/></svg>38.2 万</span>
+            <span>2025.03</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="work-card" data-cat="people">
+        <div class="work-thumb">
+          <svg viewBox="0 0 400 250" aria-label="路口修车匠画面">
+            <rect width="400" height="250" fill="#1a1f28"/>
+            <circle cx="120" cy="96" r="44" fill="#ff5a3c" opacity=".16"/>
+            <circle cx="120" cy="96" r="24" fill="#ff5a3c" opacity=".32"/>
+            <path d="M0 190 H400 V250 H0 Z" fill="#232a35"/>
+            <g stroke="#4a5568" stroke-width="3" fill="none">
+              <circle cx="250" cy="160" r="22"/><circle cx="310" cy="160" r="22"/><path d="M250 160 L282 138 L310 160"/>
+            </g>
+            <rect x="30" y="120" width="60" height="70" rx="4" fill="#151a22"/>
+            <text x="60" y="162" fill="#ffb43c" font-size="13" text-anchor="middle" font-family="monospace">修车</text>
+          </svg>
+          <span class="work-dur">08:12</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tag">人物故事</div>
+          <h3>在新路口修了三十年车的人</h3>
+          <p>老陈的修车摊随着路段拓宽搬了三次家，从路口东角挪到西角。他说路宽了、车快了，但借气筒的人还是那么多。</p>
+          <div class="work-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6"/></svg>52.7 万</span>
+            <span>2025.01</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="work-card" data-cat="sound">
+        <div class="work-thumb">
+          <svg viewBox="0 0 400 250" aria-label="声景实验画面">
+            <rect width="400" height="250" fill="#101620"/>
+            <g stroke="#ffb43c" stroke-width="2" fill="none" opacity=".8">
+              <path d="M0 125 Q25 85 50 125 T100 125 T150 125 T200 125 T250 125 T300 125 T350 125 T400 125"/>
+            </g>
+            <g stroke="#ff5a3c" stroke-width="1.5" fill="none" opacity=".55">
+              <path d="M0 150 Q25 120 50 150 T100 150 T150 150 T200 150 T250 150 T300 150 T350 150 T400 150"/>
+              <path d="M0 100 Q25 70 50 100 T100 100 T150 100 T200 100 T250 100 T300 100 T350 100 T400 100"/>
+            </g>
+            <g fill="#ff5a3c" opacity=".85">
+              <rect x="80" y="182" width="6" height="26" rx="3"/><rect x="94" y="170" width="6" height="46" rx="3"/>
+              <rect x="108" y="190" width="6" height="18" rx="3"/><rect x="122" y="160" width="6" height="60" rx="3"/>
+              <rect x="136" y="178" width="6" height="30" rx="3"/><rect x="150" y="150" width="6" height="76" rx="3"/>
+              <rect x="164" y="186" width="6" height="22" rx="3"/><rect x="178" y="168" width="6" height="48" rx="3"/>
+            </g>
+          </svg>
+          <span class="work-dur">21:35</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tag">声景实验</div>
+          <h3>十二小时 · 一条路的呼吸频率</h3>
+          <p>用八支麦克风在路段两侧布点，从清晨到午夜。去掉画面之后，这条路会剩下什么声音？</p>
+          <div class="work-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6"/></svg>19.4 万</span>
+            <span>2024.11</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="work-card" data-cat="archive">
+        <div class="work-thumb">
+          <svg viewBox="0 0 400 250" aria-label="影像档案画面">
+            <rect width="400" height="250" fill="#141922"/>
+            <g stroke="#2f3846" stroke-width="1">
+              <path d="M0 60 H400 M0 100 H400 M0 140 H400 M0 180 H400 M0 220 H400"/>
+              <path d="M60 0 V250 M120 0 V250 M180 0 V250 M240 0 V250 M300 0 V250 M360 0 V250"/>
+            </g>
+            <rect x="80" y="70" width="100" height="70" rx="4" fill="#ff5a3c" opacity=".22"/>
+            <rect x="210" y="110" width="120" height="80" rx="4" fill="#ffb43c" opacity=".18"/>
+            <rect x="120" y="140" width="90" height="60" rx="4" fill="#e8ecf2" opacity=".1"/>
+            <circle cx="300" cy="80" r="26" stroke="#ff5a3c" stroke-width="2" fill="none" opacity=".7"/>
+            <path d="M300 60 V80 L316 88" stroke="#ff5a3c" stroke-width="2" fill="none" opacity=".7"/>
+          </svg>
+          <span class="work-dur">存档</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tag">影像档案</div>
+          <h3>久久新开路段 · 2024 年度合集</h3>
+          <p>全年 43 条路段、217 个固定机位、近 900 天的连续采样，压缩成一份可以逐帧查阅的城市生长记录。</p>
+          <div class="work-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6"/></svg>27.9 万</span>
+            <span>2024.12</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="work-card" data-cat="road">
+        <div class="work-thumb">
+          <svg viewBox="0 0 400 250" aria-label="环城高架画面">
+            <rect width="400" height="250" fill="#0f141c"/>
+            <circle cx="90" cy="60" r="34" fill="#e8ecf2" opacity=".1"/>
+            <circle cx="90" cy="60" r="18" fill="#e8ecf2" opacity=".22"/>
+            <path d="M0 180 Q100 140 200 170 T400 150" stroke="#2c3542" stroke-width="14" fill="none"/>
+            <path d="M0 180 Q100 140 200 170 T400 150" stroke="#ff5a3c" stroke-width="2.4" fill="none" stroke-dasharray="12 18" opacity=".8"/>
+            <path d="M0 220 Q120 200 240 214 T400 200" stroke="#38424f" stroke-width="6" fill="none"/>
+            <g fill="#ffb43c" opacity=".7">
+              <circle cx="150" cy="158" r="3"/><circle cx="230" cy="168" r="3"/><circle cx="310" cy="162" r="3"/>
+            </g>
+          </svg>
+          <span class="work-dur">17:08</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tag">路段纪录</div>
+          <h3>环城高架 · 光带形成的第九十天</h3>
+          <p>当车流密度终于高到能把整条高架连成光带，我们用延时摄影记录了它从稀疏到饱和的整个过程。</p>
+          <div class="work-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6"/></svg>33.6 万</span>
+            <span>2025.04</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="work-card" data-cat="people">
+        <div class="work-thumb">
+          <svg viewBox="0 0 400 250" aria-label="公交司机画面">
+            <rect width="400" height="250" fill="#191e27"/>
+            <rect x="40" y="60" width="320" height="150" rx="10" fill="#202834"/>
+            <rect x="60" y="80" width="180" height="90" rx="6" fill="#0f141c"/>
+            <g stroke="#ffb43c" stroke-width="2" opacity=".5" fill="none">
+              <path d="M70 150 H230 M70 135 H230 M70 120 H230"/>
+            </g>
+            <circle cx="310" cy="140" r="34" fill="#ff5a3c" opacity=".18"/>
+            <circle cx="310" cy="140" r="22" stroke="#ff5a3c" stroke-width="3" fill="none"/>
+            <path d="M310 118 V140 L326 150" stroke="#ffb43c" stroke-width="3" fill="none"/>
+          </svg>
+          <span class="work-dur">14:26</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tag">人物故事</div>
+          <h3>开第一班车的人，看见了整座城市醒过来</h3>
+          <p>跟着一位有十九年驾龄的公交司机跑完一整趟新线路，从总站空车出发，到车厢坐满陌生的清晨。</p>
+          <div class="work-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6"/></svg>45.1 万</span>
+            <span>2025.02</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 历程 ================= -->
+<section class="section section-alt" id="journey">
+  <div class="wrap">
+    <div class="eyebrow">Our Journey</div>
+    <h2 class="section-title">一条路，走了九年</h2>
+    <p class="section-sub">从偶然的一次拍摄，到系统性的城市影像档案，我们把「久久」这个词，慢慢做成了时间单位。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2016</div>
+        <h4>三个人，一条刚通车的高架</h4>
+        <p>第一次按下录制键，只是因为好奇这条路晚上会亮成什么样。那段十七分钟的素材，成了我们最早的档案。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2018</div>
+        <h4>建立固定机位回访制度</h4>
+        <p>开始系统地记录同一机位的季节变化，并第一次把「新开路段」确立为长期主题，项目代号「久久」。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020</div>
+        <h4>声景采集加入档案</h4>
+        <p>画面之外开始收录环境声与采访录音，作品从「看」扩展到「听」，形成双轨记录体系。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2022</div>
+        <h4>首次跨城协作</h4>
+        <p>与七座城市的本地创作者建立共创网络，同一时间对不同路段进行平行拍摄，形成对照式长片。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <h4>影像档案开源检索</h4>
+        <p>上线内部检索系统，按路段、时段、天气、车速等维度索引素材，让档案真正可被研究与复用。</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <h4>「久久新开路段」全面记录计划</h4>
+        <p>启动新一轮覆盖计划，目标在三年内完成一百五十条新开路段的完整影像肖像，并向公众开放部分片段。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 社区 ================= -->
+<section class="section community" id="community">
+  <div class="wrap">
+    <div class="community-head">
+      <div>
+        <div class="eyebrow">Community Voices</div>
+        <h2 class="section-title">来自路上的人</h2>
+        <p class="section-sub" style="margin-bottom:0">他们有的住在路边，有的每天经过，有的只是恰好看见。这些声音构成了作品的另一条轨道。</p>
+      </div>
+    </div>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote-text">「看完《第一百个清晨》才意识到，我家楼下那条路已经通车两年了。我每天经过，却从没认真看过它一次。后来我自己也拿手机拍了一段，投给了他们。」</p>
+        <div class="quote-user">
+          <div class="avatar" style="background:linear-gradient(135deg,#ff5a3c,#ffb43c)">林</div>
+          <div><b>林一舟</b><small>南延路沿线居民</small></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote-text">「作为城市规划从业者，我很感激有人愿意用这么笨、这么慢的方法记录城市。数据报表里看不到的东西，他们的镜头里有。」</p>
+        <div class="quote-user">
+          <div class="avatar" style="background:linear-gradient(135deg,#5a8cff,#8f5aff)">周</div>
+          <div><b>周斯年</b><small>城市研究者</small></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <div class="stars">★★★★☆</div>
+        <p class="quote-text">「第一次参与共创是在雨夜，跟着团队蹲在立交桥下等车流。冷得要命，但最后那个镜头真的值。现在我成了常驻志愿者。」</p>
+        <div class="quote-user">
+          <div class="avatar" style="background:linear-gradient(135deg,#3ddc84,#5affd0)">陈</div>
+          <div><b>陈砚</b><small>共创摄影师 · 3 年</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 订阅 ================= -->
+<section class="section" id="subscribe">
+  <div class="wrap">
+    <div class="subscribe">
+      <div class="subscribe-grid">
+        <div>
+          <div class="eyebrow">Join The Plan</div>
+          <h2>加入「久久新开路段」<br>创作与观察计划</h2>
+          <p>每月一封影像简报：最新路段作品、未公开片段、拍摄手记，以及下一次共创活动的报名通道。我们不发广告，只发路上的事。</p>
+          <div class="sub-note">我们尊重你的收件箱，随时可退订。</div>
+        </div>
+        <div>
+          <form class="sub-form" id="subForm" novalidate>
+            <input type="email" id="subEmail" placeholder="请输入你的邮箱地址" aria-label="邮箱地址">
+            <button type="submit">订阅简报</button>
+          </form>
+          <div class="sub-msg" id="subMsg" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="section-title">常见问题</h2>
+    <p class="section-sub">关于项目、合作与共创，这里有一些你可能会问的事。</p>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item open">
+        <button class="faq-q" type="button">「久久新开路段」具体记录什么？<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>我们记录一条新开通路段在通车初期两年内的完整变化：路面与配套设施、两侧建筑与店铺更替、日夜车流与人流、环境声景，以及沿线居民与从业者的口述。每条路段会形成一个可检索的影像档案包。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">普通人可以参与共创吗？<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>可以。我们不要求专业设备，手机拍摄的固定机位片段同样可以入选。你只需要提供路段时间、位置与拍摄说明，团队会协助整理与归档。每年我们还会组织线下共创拍摄日，欢迎报名参与。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">作品会用于商业用途吗？<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>社区投稿片段默认仅用于非商业的公益影像档案与展览。如有商业合作需求，我们会事先与作者单独沟通并签署授权协议，任何使用都会明确署名。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">如何申请使用历史影像档案？<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>研究机构、媒体与教育单位可通过订阅简报中的联系方式提交申请，说明用途与检索维度。我们会在五个工作日内回复，并在符合档案使用规范的前提下提供素材。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">团队接受品牌合作吗？<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>接受，但仅限于与城市、出行、生活方式相关且不干扰记录客观性的合作。我们更愿意做长期的内容共建，而不是一次性植入。合作提案请通过订阅表单备注说明。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 页脚 ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark"><span></span></span>
+          <span>婷久久见<small>LONG STREET STUDIO</small></span>
+        </a>
+        <p>以「久久新开路段」为长期主题的城市影像工作室，用慢方式记录快变化，让每一条路都被长久地看见。</p>
+        <div class="socials" style="margin-top:22px">
+          <a href="#top" aria-label="视频平台"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></a>
+          <a href="#top" aria-label="社交平台"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></a>
+          <a href="#top" aria-label="邮件"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M4 7l8 6 8-6"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>项目</h5>
+        <ul>
+          <li><a href="#works">影像作品</a></li>
+          <li><a href="#journey">记录历程</a></li>
+          <li><a href="#about">关于工作室</a></li>
+          <li><a href="#community">社区声音</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>参与</h5>
+        <ul>
+          <li><a href="#subscribe">订阅简报</a></li>
+          <li><a href="#faq">共创申请</a></li>
+          <li><a href="#faq">档案使用</a></li>
+          <li><a href="#faq">品牌合作</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>支持</h5>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#subscribe">联系我们</a></li>
+          <li><a href="#top">使用条款</a></li>
+          <li><a href="#top">隐私说明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 婷久久见 · 久久新开路段影像计划</span>
+      <span>所有路段记录均经现场授权 · 影像档案持续更新中</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 导航滚动状态 ---------- */
+  var nav = document.getElementById('siteNav');
+  function onScroll(){
+    if(window.scrollY > 24){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- 移动端菜单（简单跳转到锚点） ---------- */
+  var menuBtn = document.getElementById('menuBtn');
+  menuBtn && menuBtn.addEventListener('click', function(){
+    var target = document.getElementById('about');
+    if(target){ target.scrollIntoView({behavior:'smooth'}); }
+  });
+
+  /* ---------- 跑马灯内容 ---------- */
+  var marqueeData = [
+    '新开路段记录中','城市生长档案','固定机位回访','声景采样','共创摄影师招募',
+    '久久项目','影像简报','路段肖像','时间的力量','日常即史诗'
+  ];
+  var track = document.getElementById('marqueeTrack');
+  if(track){
+    var html = '';
+    // 复制两遍以实现无缝滚动
+    for(var round=0; round<2; round++){
+      for(var i=0;i<marqueeData.length;i++){
+        html += '<span class="marquee-item">'+marqueeData[i]+'</span>';
+      }
+    }
+    track.innerHTML = html;
+  }
+
+  /* ---------- 数字滚动动画 ---------- */
+  var counters = document.querySelectorAll('.counter-num');
+  var counted = false;
+  function animateCounters(){
+    if(counted) return;
+    var trigger = document.querySelector('.counters');
+    if(!trigger) return;
+    var rect = trigger.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 80){
+      counted = true;
+      counters.forEach(function(el){
+        var raw = el.textContent;
+        var hasUnit = el.querySelector('i');
+        var numText = raw.replace(/[^\d]/g,'');
+        var target = parseInt(numText,10) || 0;
+        var unitHTML = hasUnit ? hasUnit.outerHTML : '';
+        var dur = 1400, start = null;
+        function step(ts){
+          if(!start) start = ts;
+          var p = Math.min((ts-start)/dur,1);
+          var eased = 1 - Math.pow(1-p,3);
+          var val = Math.round(target*eased);
+          el.innerHTML = (val>=1000 ? val.toLocaleString('en-US') : val) + unitHTML;
+          if(p<1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll', animateCounters, {passive:true});
+  animateCounters();
+
+  /* ---------- 作品筛选 ---------- */
+  var filterRow = document.getElementById('filterRow');
+  var workCards = document.querySelectorAll('#workGrid .work-card');
+  if(filterRow){
+    filterRow.addEventListener('click', function(e){
+      var btn = e.target.closest('.filter-btn');
+      if(!btn) return;
+      var f = btn.getAttribute('data-filter');
+      filterRow.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      workCards.forEach(function(card){
+        var cat = card.getAttribute('data-cat');
+        if(f === 'all' || cat === f){
+          card.style.display = '';
+          card.style.animation = 'none';
+          void card.offsetWidth;
+          card.style.animation = 'fadeIn .4s ease';
+        }else{
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  /* 为筛选加一个简易淡入动画 */
+  var styleTag = document.createElement('style');
+  styleTag.textContent = '@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}';
+  document.head.appendChild(styleTag);
+
+  /* ---------- FAQ 手风琴 ---------- */
+  var faqList = document.getElementById('faqList');
+  if(faqList){
+    faqList.addEventListener('click', function(e){
+      var q = e.target.closest('.faq-q');
+      if(!q) return;
+      var item = q.parentElement;
+      var answer = item.querySelector('.faq-a');
+      var isOpen = item.classList.contains('open');
+
+      // 关闭其他项
+      faqList.querySelectorAll('.faq-item').forEach(function(it){
+        it.classList.remove('open');
+        var a = it.querySelector('.faq-a');
+        if(a) a.style.maxHeight = null;
+      });
+
+      if(!isOpen){
+        item.classList.add('open');
+        if(answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+    // 初始化第一个展开项高度
+    var firstAnswer = faqList.querySelector('.faq-item.open .faq-a');
+    if(firstAnswer){ firstAnswer.style.maxHeight = firstAnswer.scrollHeight + 'px'; }
+  }
+
+  /* ---------- 订阅表单 ---------- */
+  var subForm = document.getElementById('subForm');
+  var subMsg = document.getElementById('subMsg');
+  if(subForm){
+    subForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var emailInput = document.getElementById('subEmail');
+      var val = (emailInput.value || '').trim();
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      if(!ok){
+        subMsg.style.color = '#ff5a3c';
+        subMsg.textContent = '请输入一个有效的邮箱地址，我们会把路上的故事寄给你。';
+        return;
+      }
+      subMsg.style.color = '#3ddc84';
+      subMsg.textContent = '订阅成功！下一封影像简报正在路上，请留意收件箱。';
+      emailInput.value = '';
+    });
+  }
+
+  /* ---------- 平滑滚动（锚点） ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length < 2) return;
+      var target = document.querySelector(id);
+      if(target){
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({top: top, behavior:'smooth'});
+      }
+    });
+  });
+
+  /* ---------- 元素进入视口淡入 ---------- */
+  var revealEls = document.querySelectorAll('.point, .work-card, .counter-card, .quote-card, .tl-item');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.style.opacity = '1';
+          en.target.style.transform = 'none';
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      io.observe(el);
+    });
+  }
+
+})();
+</script>
+</body>
+              </html>
